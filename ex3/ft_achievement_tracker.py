@@ -13,16 +13,16 @@ if __name__ == "__main__":
     print("=== Achievement Analytics ===")
     union_players = alice.union(bob).union(charlie)
     union_players2 = alice | bob | charlie
-    print(f"All unique achievements: {sorted(union_players)}")
+    print(f"All unique achievements: {union_players}")
     print(f"Total unique achievements: {len(union_players)}")
     print()
     inter_players = alice.intersection(bob).intersection(charlie)
     rare_achiev =  (alice - bob - charlie) | (bob - alice - charlie) | (charlie - alice - bob)
-    print(f"Common to all players: {sorted(inter_players)}")
+    print(f"Common to all players: {inter_players}")
     print(f"Rare achievements (1 player): {rare_achiev}")
     print()
     print(f"Alice vs Bob common: {alice.intersection(bob)}")
-    alice_unique = alice - bob.union(charlie)
-    print(f"Alice unique: {alice - (bob & charlie)}")
+    print(f"Alice unique: {alice - bob}")
+    print(f"Bob unique: {bob - alice}")
 
 
